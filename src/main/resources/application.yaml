@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: AwakersBursar
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: ${DATABASE_PASSWORD}
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+
+server:
+  error:
+    includeMessage: ALWAYS
+    includeStacktrace: NEVER
+  port: ${APPLICATION_PORT}
+  servlet:
+    contextPath: /Bursar

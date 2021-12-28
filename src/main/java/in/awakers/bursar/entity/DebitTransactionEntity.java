@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
@@ -19,9 +19,12 @@ public class DebitTransactionEntity
     @Column(name = "TRANSACTION_ID")
     private Integer transactionID;
 
-    private LocalDate dateOfTransaction;
+    private LocalDateTime dateOfTransaction;
     private String category;
+
+    @Transient
     private Set<String> particulars;
+
     private Float amount;
 
     @Enumerated(EnumType.STRING)
