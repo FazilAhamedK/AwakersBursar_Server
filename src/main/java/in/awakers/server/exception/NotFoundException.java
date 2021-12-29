@@ -1,4 +1,4 @@
-package in.awakers.bursar.exception;
+package in.awakers.server.exception;
 
 public class NotFoundException extends Exception
 {

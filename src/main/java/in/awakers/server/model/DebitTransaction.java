@@ -1,4 +1,4 @@
-package in.awakers.bursar.model;
+package in.awakers.server.model;
 
 import lombok.Builder;
 import lombok.Getter;

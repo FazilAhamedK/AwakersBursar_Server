@@ -1,8 +1,8 @@
-package in.awakers.bursar.entity;
+package in.awakers.server.entity;
 
-import in.awakers.bursar.model.AccountType;
-import lombok.Getter;
-import lombok.Setter;
+import in.awakers.server.model.AccountType;
+import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -10,8 +10,12 @@ import java.util.Set;
 
 @Entity
 @Table(name = "DEBIT_TRANSACTIONS")
+@DynamicInsert
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class DebitTransactionEntity
 {
     @Id

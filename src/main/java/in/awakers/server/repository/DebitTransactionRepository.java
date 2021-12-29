@@ -1,7 +1,8 @@
-package in.awakers.bursar.repository;
+package in.awakers.server.repository;
 
-import in.awakers.bursar.entity.DebitTransactionEntity;
+import in.awakers.server.entity.DebitTransactionEntity;
 import org.springframework.data.repository.CrudRepository;
 
 public interface DebitTransactionRepository extends CrudRepository<DebitTransactionEntity, Integer>
-{ }
+{
+}

@@ -1,17 +1,23 @@
-package in.awakers.bursar.model;
+package in.awakers.server.model;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 public final class CreditTransaction extends Transaction
 {
+    @NotBlank(message = "{transaction.payorName.notBlank}")
     private String payorName;
+
+    @Email(message = "{transaction.payorEmail.invalid}")
     private String payorEmail;
+
     private TransactionStatus transactionStatus;
     private String verifiedBy;
     private LocalDateTime verifiedOn;

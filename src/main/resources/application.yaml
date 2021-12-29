@@ -13,4 +13,4 @@ server:
     includeStacktrace: NEVER
   port: ${APPLICATION_PORT}
   servlet:
-    contextPath: /Bursar
+    contextPath: /Awakers/Server

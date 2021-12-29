@@ -1,4 +1,4 @@
-package in.awakers.bursar.exception;
+package in.awakers.server.exception;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

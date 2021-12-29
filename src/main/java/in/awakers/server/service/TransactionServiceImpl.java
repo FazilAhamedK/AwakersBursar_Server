@@ -1,15 +1,15 @@
-package in.awakers.bursar.service;
+package in.awakers.server.service;
 
-import in.awakers.bursar.entity.CreditTransactionEntity;
-import in.awakers.bursar.entity.DebitTransactionEntity;
-import in.awakers.bursar.exception.ExceptionConstants;
-import in.awakers.bursar.exception.NotFoundException;
-import in.awakers.bursar.mapper.TransactionMapper;
-import in.awakers.bursar.model.CreditTransaction;
-import in.awakers.bursar.model.DebitTransaction;
-import in.awakers.bursar.model.Transaction;
-import in.awakers.bursar.repository.CreditTransactionRepository;
-import in.awakers.bursar.repository.DebitTransactionRepository;
+import in.awakers.server.entity.CreditTransactionEntity;
+import in.awakers.server.entity.DebitTransactionEntity;
+import in.awakers.server.exception.ExceptionConstants;
+import in.awakers.server.exception.NotFoundException;
+import in.awakers.server.mapper.TransactionMapper;
+import in.awakers.server.model.CreditTransaction;
+import in.awakers.server.model.DebitTransaction;
+import in.awakers.server.model.Transaction;
+import in.awakers.server.repository.CreditTransactionRepository;
+import in.awakers.server.repository.DebitTransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +41,18 @@ public class TransactionServiceImpl implements TransactionService
         {
             return transactions;
         }
+    }
+
+    @Override
+    public void addATransaction(CreditTransaction creditTransaction)
+    {
+        creditTransactionRepository.save(TransactionMapper.toEntity(creditTransaction));
+    }
+
+    @Override
+    public void addATransaction(DebitTransaction debitTransaction)
+    {
+        debitTransactionRepository.save(TransactionMapper.toEntity(debitTransaction));
     }
 
     private List<CreditTransaction> getAllCreditTransactions()

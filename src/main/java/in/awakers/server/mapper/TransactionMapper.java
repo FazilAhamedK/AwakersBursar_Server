@@ -1,9 +1,9 @@
-package in.awakers.bursar.mapper;
+package in.awakers.server.mapper;
 
-import in.awakers.bursar.entity.CreditTransactionEntity;
-import in.awakers.bursar.entity.DebitTransactionEntity;
-import in.awakers.bursar.model.CreditTransaction;
-import in.awakers.bursar.model.DebitTransaction;
+import in.awakers.server.entity.CreditTransactionEntity;
+import in.awakers.server.entity.DebitTransactionEntity;
+import in.awakers.server.model.CreditTransaction;
+import in.awakers.server.model.DebitTransaction;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -24,6 +24,17 @@ public class TransactionMapper
                                 .verifiedOn(creditTransactionEntity.getVerifiedOn()).build();
     }
 
+    public static CreditTransactionEntity toEntity(CreditTransaction creditTransaction)
+    {
+        return CreditTransactionEntity.builder()
+                                      .dateOfTransaction(creditTransaction.getDateOfTransaction())
+                                      .payorName(creditTransaction.getPayorName())
+                                      .payorEmail(creditTransaction.getPayorEmail())
+                                      .amount(creditTransaction.getAmount())
+                                      .category(creditTransaction.getCategory())
+                                      .accountType(creditTransaction.getAccountType()).build();
+    }
+
     public static DebitTransaction toDTO(DebitTransactionEntity debitTransactionEntity)
     {
         return DebitTransaction.builder().transactionID(debitTransactionEntity.getTransactionID())
@@ -32,5 +43,15 @@ public class TransactionMapper
                                .category(debitTransactionEntity.getCategory())
                                .accountType(debitTransactionEntity.getAccountType())
                                .particulars(debitTransactionEntity.getParticulars()).build();
+    }
+
+    public static DebitTransactionEntity toEntity(DebitTransaction debitTransaction)
+    {
+        return DebitTransactionEntity.builder()
+                                     .dateOfTransaction(debitTransaction.getDateOfTransaction())
+                                     .amount(debitTransaction.getAmount())
+                                     .category(debitTransaction.getCategory())
+                                     .accountType(debitTransaction.getAccountType())
+                                     .particulars(debitTransaction.getParticulars()).build();
     }
 }

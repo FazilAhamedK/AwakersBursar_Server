@@ -1,11 +1,11 @@
-package in.awakers.bursar;
+package in.awakers.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories("in.awakers.bursar.repository")
+@EnableJpaRepositories("in.awakers.server.repository")
 public class AwakersBursarApplication
 {
     public static void main(String[] args)
