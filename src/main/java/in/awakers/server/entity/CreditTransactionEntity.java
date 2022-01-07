@@ -1,11 +1,16 @@
 package in.awakers.server.entity;
 
-import in.awakers.server.model.AccountType;
 import in.awakers.server.model.TransactionStatus;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.DynamicInsert;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
@@ -13,24 +18,12 @@ import java.time.LocalDateTime;
 @DynamicInsert
 @Getter
 @Setter
-@Builder
+@SuperBuilder
 @NoArgsConstructor
-@AllArgsConstructor
-public class CreditTransactionEntity
+public class CreditTransactionEntity extends TransactionEntity
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "TRANSACTION_ID")
-    private Integer transactionID;
-
-    private LocalDateTime dateOfTransaction;
     private String payorName;
     private String payorEmail;
-    private Float amount;
-    private String category;
-
-    @Enumerated(EnumType.STRING)
-    private AccountType accountType;
 
     @Enumerated(EnumType.STRING)
     private TransactionStatus transactionStatus;

@@ -1,9 +1,9 @@
 package in.awakers.server.model;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -12,12 +12,10 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@SuperBuilder
+@NoArgsConstructor
 public abstract class Transaction
 {
-    @Setter(AccessLevel.NONE)
-    private final TransactionType transactionType;
-
     private Integer transactionID;
 
     @NotNull(message = "{transaction.dateOfTransaction.notNull}")

@@ -26,9 +26,7 @@ public class TransactionMapper
 
     public static CreditTransactionEntity toEntity(CreditTransaction creditTransaction)
     {
-        return CreditTransactionEntity.builder()
-                                      .dateOfTransaction(creditTransaction.getDateOfTransaction())
-                                      .payorName(creditTransaction.getPayorName())
+        return CreditTransactionEntity.builder().payorName(creditTransaction.getPayorName())
                                       .payorEmail(creditTransaction.getPayorEmail())
                                       .amount(creditTransaction.getAmount())
                                       .category(creditTransaction.getCategory())
